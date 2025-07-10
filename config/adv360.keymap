@@ -164,6 +164,13 @@
             bindings = <&kp LC(H)>;
             label = "FIND_REPLACE";
         };
+
+        select_all: select_all {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(A)>;
+            label = "SELECT_ALL";
+        };
     };
 
     keymap {
@@ -185,18 +192,18 @@
 &trans           &kp ESCAPE             &kp INSERT             &kp LS(TAB)      &kp DELETE         &trans       &trans                                                        &trans        &trans       &trans          &trans          &trans         &trans         &trans
 &trans           &kp ENTER              &kp SPACE              &kp TAB          &kp BACKSPACE      &kp K_CUT    &trans                                                        &trans        &kp K_CUT    &kp LS(TAB)     &kp K_UNDO      &kp K_REDO     &kp TAB        &trans
 &sk LSHIFT       &mt LEFT_WIN LEFT_WIN  &mt LEFT_ALT LEFT_ALT  &mt LCTRL LCTRL  &mt LSHIFT LSHIFT  &kp K_COPY   &trans  &kp LS(TAB)  &kp TAB      &select_none  &extend_word  &trans        &kp K_COPY   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &sk LSHIFT
-&trans           &kp LC(A)              &select_line           &select_word     &find              &kp K_PASTE                       &trans       &extend_line                              &kp K_PASTE  &kp LC(HOME)    &kp PAGE_UP     &kp PAGE_DOWN  &kp RC(END)    &trans
+&trans           &select_all            &select_line           &select_word     &find              &kp K_PASTE                       &trans       &extend_line                              &kp K_PASTE  &kp LC(HOME)    &kp PAGE_UP     &kp PAGE_DOWN  &kp RC(END)    &trans
 &kp C_AC_SEARCH  &kp K_UNDO             &kp K_REDO             &find_prev       &find_next                      &trans  &trans       &trans       &kp LC(A)     &select_line  &select_word               &find           &find_prev      &find_next     &find_replace  &kp C_AC_SEARCH
             >;
         };
 
         Number {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans          &kp ESCAPE             &kp INSERT             &kp LS(TAB)      &kp DELETE                 &trans           &trans                                                    &trans           &trans  &trans  &trans  &trans  &trans  &trans
+&trans          &kp ENTER              &kp SPACE              &kp TAB          &kp BACKSPACE              &kp KP_NUMBER_0  &trans                                                    &trans           &trans  &trans  &trans  &trans  &trans  &trans
+&sk LEFT_SHIFT  &mt LEFT_WIN LEFT_WIN  &mt LEFT_ALT LEFT_ALT  &mt LCTRL LCTRL  &mt LEFT_SHIFT LEFT_SHIFT  &kp X            &trans  &trans  &trans      &kp LESS_THAN     &kp COMMA   &trans           &trans  &trans  &trans  &trans  &trans  &trans
+&kp E           &select_all            &select_line           &select_word     &find                      &trans                           &trans      &kp GREATER_THAN                               &trans  &trans  &trans  &trans  &trans  &trans
+&kp UNDERSCORE  &kp K_UNDO             &kp K_REDO             &find_prev       &find_next                                  &trans  &trans  &trans      &kp EQUAL         &kp PERIOD  &kp KP_NUMBER_0          &trans  &trans  &trans  &trans  &trans
             >;
         };
 
