@@ -16,6 +16,154 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        select_line: select_line {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SELECT_LINE";
+            bindings = <&select_line_right>, <&select_line_left>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        extend_word: extend_word {
+            compatible = "zmk,behavior-mod-morph";
+            label = "EXTEND_WORD";
+            bindings = <&extend_word_right>, <&extend_word_left>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        select_word: select_word {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SELECT_WORD";
+            bindings = <&select_word_right>, <&select_word_left>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        extend_line: extend_line {
+            compatible = "zmk,behavior-mod-morph";
+            label = "EXTEND_LINE";
+            bindings = <&extend_line_right>, <&extend_line_left>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        CapsWord-RH {
+            bindings = <&caps_word>;
+            key-positions = <69 70>;
+        };
+
+        CapsWord-LH {
+            bindings = <&caps_word>;
+            key-positions = <66 65>;
+        };
+
+        TypingLayer {
+            bindings = <&tog 8>;
+            key-positions = <67 68>;
+        };
+    };
+
+    macros {
+        select_line_right: select_line_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(END)>;
+            label = "SELECT_LINE_RIGHT";
+        };
+
+        select_line_left: select_line_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp END &kp LS(END)>;
+            label = "SELECT_LINE_LEFT";
+        };
+
+        extend_word_right: extend_word_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LC(LEFT))>;
+            label = "EXTEND_WORD_RIGHT";
+        };
+
+        extend_word_left: extend_word_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LC(RIGHT))>;
+            label = "EXTEND_WORD_LEFT";
+        };
+
+        select_word_right: select_word_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(RIGHT) &kp LC(LEFT) &kp LC(LS(RIGHT))>;
+            label = "SELECT_WORD_RIGHT";
+        };
+
+        select_word_left: select_word_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LEFT) &kp LC(RIGHT) &kp LC(LS(LEFT))>;
+            label = "SELECT_WORD_LEFT";
+        };
+
+        select_none: select_none {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOWN &kp UP &kp RIGHT &kp LEFT>;
+            label = "SELECT_NONE";
+        };
+
+        extend_line_right: extend_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(DOWN) &kp LS(END)>;
+            label = "EXTEND_LINE";
+        };
+
+        extend_line_left: extend_line_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(UP_ARROW) &kp LS(HOME)>;
+            label = "EXTEND_LINE_LEFT";
+        };
+
+        find: find {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(F)>;
+            label = "FIND";
+        };
+
+        find_prev: find_prev {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(G))>;
+            label = "FIND_PREV";
+        };
+
+        find_next: find_next {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(G)>;
+            label = "FIND_NEXT";
+        };
+
+        find_replace: find_replace {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(H)>;
+            label = "FIND_REPLACE";
+        };
     };
 
     keymap {
@@ -24,11 +172,91 @@
         Base {
             display-name = "Base";
             bindings = <
-&none  &kp NUMBER_1    &kp N2          &kp N3       &kp N4       &kp N5         &none                                                                  &none  &kp N6  &kp N7       &kp N8       &kp N9           &kp N0      &none
-&none  &kp Q           &kp Y           &kp U        &kp O        &kp SLASH      &none                                                                  &none  &kp X   &kp L        &kp D        &kp W            &kp Z       &none
-&kp B  &hm LEFT_WIN C  &hm LEFT_ALT I  &hm LCTRL E  &hm LSHFT A  &kp COMMA      &none      &kp ESCAPE  &kp LEFT_BRACE       &kp HOME    &kp ENTER      &none  &kp K   &hm RSHFT H  &hm RCTRL T  &hm RIGHT_ALT N  &hm RWIN S  &kp V
-&none  &kp SQT         &kp MINUS       &kp EQUAL    &kp PERIOD   &kp SEMICOLON                         &kp RIGHT_BRACE      &kp END                           &kp J   &kp M        &kp G        &kp P            &kp F       &kp RSHFT
-&none  &none           &none           &none        &none                       &kp SPACE  &kp TAB     &kp INSERT           &kp DELETE  &kp BACKSPACE  &kp R          &none        &none        &none            &none       &none
+&none   &kp NUMBER_1    &kp N2          &kp N3          &kp N4           &kp N5         &none                                                                        &none    &kp N6  &kp N7            &kp N8        &kp N9           &kp N0      &none
+&none   &kp Q           &kp Y           &kp U           &kp O            &kp SLASH      &none                                                                        &none    &kp X   &kp L             &kp D         &kp W            &kp Z       &none
+&kp B   &hm LEFT_WIN C  &hm LEFT_ALT I  &hm LCTRL E     &hm LSHFT A      &kp COMMA      &none        &kp ESCAPE  &kp LEFT_BRACE       &kp HOME      &lt 6 ENTER      &none    &kp K   &hm RSHFT H       &hm RCTRL T   &hm RIGHT_ALT N  &hm RWIN S  &kp V
+&none   &kp SQT         &kp MINUS       &kp EQUAL       &kp PERIOD       &kp SEMICOLON                           &kp RIGHT_BRACE      &kp END                                 &kp J   &kp M             &kp G         &kp P            &kp F       &trans
+&mo 10  &none           &none           &kp LEFT_ARROW  &kp RIGHT_ARROW                 &lt 1 SPACE  &lt 2 TAB   &lt 8 INS            &lt 8 DELETE  &lt 5 BACKSPACE  &lt 3 R          &lt 7 DOWN_ARROW  &kp UP_ARROW  &none            &none       &mo 10
+            >;
+        };
+
+        Cursor {
+            bindings = <
+&trans           &kp ESCAPE             &kp INSERT             &kp LS(TAB)      &kp DELETE         &trans       &trans                                                        &trans        &trans       &trans          &trans          &trans         &trans         &trans
+&trans           &kp ENTER              &kp SPACE              &kp TAB          &kp BACKSPACE      &kp K_CUT    &trans                                                        &trans        &kp K_CUT    &kp LS(TAB)     &kp K_UNDO      &kp K_REDO     &kp TAB        &trans
+&sk LSHIFT       &mt LEFT_WIN LEFT_WIN  &mt LEFT_ALT LEFT_ALT  &mt LCTRL LCTRL  &mt LSHIFT LSHIFT  &kp K_COPY   &trans  &kp LS(TAB)  &kp TAB      &select_none  &extend_word  &trans        &kp K_COPY   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &sk LSHIFT
+&trans           &kp LC(A)              &select_line           &select_word     &find              &kp K_PASTE                       &trans       &extend_line                              &kp K_PASTE  &kp LC(HOME)    &kp PAGE_UP     &kp PAGE_DOWN  &kp RC(END)    &trans
+&kp C_AC_SEARCH  &kp K_UNDO             &kp K_REDO             &find_prev       &find_next                      &trans  &trans       &trans       &kp LC(A)     &select_line  &select_word               &find           &find_prev      &find_next     &find_replace  &kp C_AC_SEARCH
+            >;
+        };
+
+        Number {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        Symbol {
+            bindings = <
+&kp GRAVE         &kp RIGHT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COMMA         &kp PERIOD    &trans                                                        &trans  &trans             &trans          &trans       &trans        &trans        &trans
+&kp LEFT_BRACKET  &kp EXCLAMATION    &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SEMICOLON     &kp QUESTION  &trans                                                        &trans  &kp GRAVE          &sk LEFT_SHIFT  &sk LCTRL    &sk LEFT_ALT  &sk LEFT_WIN  &trans
+&kp HASH          &kp CARET          &kp EQUAL             &kp UNDERSCORE         &kp DOLLAR        &kp ASTERISK  &trans       &kp BACKSLASH  &kp ASTERISK      &trans  &trans  &trans  &kp DOUBLE_QUOTES  &kp BACKSPACE   &kp TAB      &kp SPACE     &kp ENTER     &trans
+&kp TILDE         &kp GREATER_THAN   &kp PIPE              &kp MINUS              &kp GREATER_THAN  &kp SLASH                                 &kp PERIOD        &trans                  &kp SQT            &kp DELETE      &kp LS(TAB)  &kp INSERT    &kp ESCAPE    &trans
+&trans            &kp AMPERSAND      &kp SQT               &kp DOUBLE_QUOTES      &kp PLUS                        &kp PERCENT  &kp COLON      &kp AT_SIGN       &trans  &trans  &trans                     &trans          &trans       &trans        &trans        &trans
+            >;
+        };
+
+        Function {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        Mouse {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        System {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        World {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        Typing {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -42,13 +270,13 @@
             >;
         };
 
-        Symbol {
+        Magic {
             bindings = <
-&trans  &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COMMA         &kp PERIOD    &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SEMICOLON     &kp QUESTION  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp EQUAL             &kp UNDERSCORE         &kp DOLLAR        &kp ASTERISK  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp PIPE              &kp MINUS              &kp GREATER_THAN  &kp SLASH                     &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp SQT               &kp DOUBLE_QUOTES      &kp PLUS                        &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
