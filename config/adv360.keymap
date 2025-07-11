@@ -199,11 +199,11 @@
 
         Number {
             bindings = <
-&trans          &kp ESCAPE             &kp INSERT             &kp LS(TAB)      &kp DELETE                 &trans           &trans                                                    &trans           &trans  &trans  &trans  &trans  &trans  &trans
-&trans          &kp ENTER              &kp SPACE              &kp TAB          &kp BACKSPACE              &kp KP_NUMBER_0  &trans                                                    &trans           &trans  &trans  &trans  &trans  &trans  &trans
-&sk LEFT_SHIFT  &mt LEFT_WIN LEFT_WIN  &mt LEFT_ALT LEFT_ALT  &mt LCTRL LCTRL  &mt LEFT_SHIFT LEFT_SHIFT  &kp X            &trans  &trans  &trans      &kp LESS_THAN     &kp COMMA   &trans           &trans  &trans  &trans  &trans  &trans  &trans
-&kp E           &select_all            &select_line           &select_word     &find                      &trans                           &trans      &kp GREATER_THAN                               &trans  &trans  &trans  &trans  &trans  &trans
-&kp UNDERSCORE  &kp K_UNDO             &kp K_REDO             &find_prev       &find_next                                  &trans  &trans  &trans      &kp EQUAL         &kp PERIOD  &kp KP_NUMBER_0          &trans  &trans  &trans  &trans  &trans
+&trans          &kp ESCAPE             &kp INSERT             &kp LS(TAB)      &kp DELETE                 &trans           &trans                                                    &trans           &kp PIPE  &kp HASH          &kp DOLLAR            &kp CARET              &kp TILDE          &kp EXCLAMATION
+&trans          &kp ENTER              &kp SPACE              &kp TAB          &kp BACKSPACE              &kp KP_NUMBER_0  &trans                                                    &trans           &kp G     &kp KP_NUMBER_7   &kp KP_NUMBER_8       &kp KP_NUMBER_9        &kp COLON          &kp PERCENT
+&sk LEFT_SHIFT  &mt LEFT_WIN LEFT_WIN  &mt LEFT_ALT LEFT_ALT  &mt LCTRL LCTRL  &mt LEFT_SHIFT LEFT_SHIFT  &kp X            &trans  &trans  &trans      &kp LESS_THAN     &kp COMMA   &trans           &kp K     &kp KP_NUMBER_4   &kp KP_NUMBER_5       &kp KP_NUMBER_6        &kp MINUS          &kp PLUS
+&kp E           &select_all            &select_line           &select_word     &find                      &trans                           &trans      &kp GREATER_THAN                               &kp J     &kp KP_NUMBER_1   &kp KP_NUMBER_2       &kp KP_NUMBER_3        &kp SLASH          &kp ASTERISK
+&kp UNDERSCORE  &kp K_UNDO             &kp K_REDO             &find_prev       &find_next                                  &trans  &trans  &trans      &kp EQUAL         &kp PERIOD  &kp KP_NUMBER_0            &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp AT_SIGN
             >;
         };
 
