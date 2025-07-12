@@ -1,5 +1,6 @@
 #include <dt-bindings/zmk/stp.h>
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
@@ -280,11 +281,11 @@
 
         Magic {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans       &trans  &trans  &trans  &trans  &trans  &trans                                      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR  &bt BT_CLR_ALL
+&to 0        &to 1   &to 2   &to 3   &to 4   &to 5   &trans                                      &trans        &to 6         &to 7         &to 8         &to 9         &to 10      &trans
+&bootloader  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans        &trans        &trans        &trans        &trans        &trans      &bootloader
+&sys_reset   &trans  &trans  &trans  &trans  &trans                  &trans      &trans                        &trans        &trans        &trans        &trans        &trans      &sys_reset
+&trans       &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans                      &trans        &trans        &trans        &trans      &trans
             >;
         };
     };
