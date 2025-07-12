@@ -183,8 +183,8 @@
             bindings = <
 &none   &kp NUMBER_1    &kp N2          &kp N3          &kp N4           &kp N5         &none                                                                        &none    &kp N6  &kp N7            &kp N8        &kp N9           &kp N0      &none
 &none   &kp Q           &kp Y           &kp U           &kp O            &kp SLASH      &none                                                                        &none    &kp X   &kp L             &kp D         &kp W            &kp Z       &none
-&kp B   &hm LEFT_WIN C  &hm LEFT_ALT I  &hm LCTRL E     &hm LSHFT A      &kp COMMA      &none        &kp ESCAPE  &kp LEFT_BRACE       &kp HOME      &lt 7 ENTER      &none    &kp K   &hm RSHFT H       &hm RCTRL T   &hm RIGHT_ALT N  &hm RWIN S  &kp V
-&none   &kp SQT         &kp MINUS       &kp EQUAL       &kp PERIOD       &kp SEMICOLON                           &kp RIGHT_BRACE      &kp END                                 &kp J   &kp M             &kp G         &kp P            &kp F       &trans
+&kp B   &hm LEFT_WIN C  &hm LEFT_ALT I  &hm LCTRL E     &hm LSHFT A      &kp COMMA      &none        &kp ESCAPE  &kp RIGHT_BRACE      &kp HOME      &lt 7 ENTER      &none    &kp K   &hm RSHFT H       &hm RCTRL T   &hm RIGHT_ALT N  &hm RWIN S  &kp V
+&none   &kp SQT         &kp MINUS       &kp EQUAL       &kp PERIOD       &kp SEMICOLON                           &kp LEFT_BRACE       &kp END                                 &kp J   &kp M             &kp G         &kp P            &kp F       &trans
 &mo 11  &none           &none           &kp LEFT_ARROW  &kp RIGHT_ARROW                 &lt 2 SPACE  &lt 3 TAB   &lt 9 INS            &lt 9 DELETE  &lt 6 BACKSPACE  &lt 5 R          &lt 8 DOWN_ARROW  &kp UP_ARROW  &none            &none       &mo 11
             >;
         };
@@ -221,11 +221,11 @@
 
         Function {
             bindings = <
-&trans          &kp ESCAPE     &kp INSERT             &kp LS(TAB)      &kp DELETE                 &trans  &trans                                                           &trans           &trans  &trans  &trans  &trans  &trans  &trans
-&trans          &kp ENTER      &kp SPACE              &kp TAB          &kp BACKSPACE              &trans  &trans                                                           &trans           &trans  &trans  &trans  &trans  &trans  &trans
-&sk LEFT_SHIFT  &mt LWIN LWIN  &mt LEFT_ALT LEFT_ALT  &mt LCTRL LCTRL  &mt LEFT_SHIFT LEFT_SHIFT  &trans  &trans  &trans  &trans      &kp C_PREV        &kp C_NEXT         &trans           &trans  &trans  &trans  &trans  &trans  &trans
-&trans          &select_all    &select_line           &select_word     &find                      &trans                  &trans      &kp K_PLAY_PAUSE                                      &trans  &kp F1  &kp F2  &kp F3  &trans  &trans
-&trans          &kp K_UNDO     &kp K_REDO             &find_prev       &find_next                         &trans  &trans  &trans      &kp K_MUTE        &kp C_VOLUME_DOWN  &kp C_VOLUME_UP          &trans  &trans  &trans  &trans  &trans
+&trans          &kp ESCAPE     &kp INSERT             &kp LS(TAB)      &kp DELETE                 &trans  &trans                                                           &trans           &trans  &kp C_PLAY  &kp C_PREV  &kp C_NEXT  &kp C_STOP  &kp C_EJECT
+&trans          &kp ENTER      &kp SPACE              &kp TAB          &kp BACKSPACE              &trans  &trans                                                           &trans           &trans  &kp F7      &kp F8      &kp F9      &kp F10     &trans
+&sk LEFT_SHIFT  &mt LWIN LWIN  &mt LEFT_ALT LEFT_ALT  &mt LCTRL LCTRL  &mt LEFT_SHIFT LEFT_SHIFT  &trans  &trans  &trans  &trans      &kp C_PREV        &kp C_NEXT         &trans           &trans  &kp F4      &kp F5      &kp F6      &kp F11     &trans
+&trans          &select_all    &select_line           &select_word     &find                      &trans                  &trans      &kp K_PLAY_PAUSE                                      &trans  &kp F1      &kp F2      &kp F3      &kp F12     &trans
+&trans          &kp K_UNDO     &kp K_REDO             &find_prev       &find_next                         &trans  &trans  &trans      &kp K_MUTE        &kp C_VOLUME_DOWN  &kp C_VOLUME_UP          &trans      &trans      &trans      &trans      &trans
             >;
         };
 
@@ -292,8 +292,8 @@
         Magic {
             bindings = <
 &trans       &trans  &trans  &trans  &trans  &trans  &trans                                      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR  &bt BT_CLR_ALL
-&to 0        &to 2   &to 3   &to 4   &to 5   &to 6   &trans                                      &trans        &to 7         &to 8         &to 9         &to 10        &to 11      &trans
-&bootloader  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans        &trans        &trans        &trans        &trans        &trans      &bootloader
+&to 0        &to 2   &to 3   &to 4   &to 5   &to 6   &trans                                      &trans        &to 7         &to 8         &to 9         &to 10        &to 11      &studio_unlock
+&bootloader  &to 1   &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans        &trans        &trans        &trans        &trans        &trans      &bootloader
 &sys_reset   &trans  &trans  &trans  &trans  &trans                  &trans      &trans                        &trans        &trans        &trans        &trans        &trans      &sys_reset
 &trans       &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans                      &trans        &trans        &trans        &trans      &trans
             >;
